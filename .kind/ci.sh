@@ -9,5 +9,5 @@ helm upgrade --install --create-namespace --namespace cert-manager \
     -f .kind/cert-manager-values.yaml --wait
 
 helm upgrade --install --create-namespace --namespace strimzi-cluster \
-    strimzi oci://ghcr.io/logscale-contrib/charts/kafka-cluster --version ${V_STRIMZI_OPERATOR:-1.1.1} \
+    strimzi oci://ghcr.io/logscale-contrib/charts/kafka-cluster --version ${V_KAFKA_CLUSTER:-1.1.1} \
     -f .kind/strimz-cluster-values.yaml --wait
