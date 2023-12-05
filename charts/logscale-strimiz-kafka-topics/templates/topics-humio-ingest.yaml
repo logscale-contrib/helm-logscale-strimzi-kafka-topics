@@ -1,0 +1,28 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+{{- if .Values.config.prefix }}
+  name: {{ .Values.config.prefix }}-humio-ingest
+{{ else }}
+  name: humio-ingest
+{{- end }}
+  annotations:
+    helm.sh/resource-policy: "keep"
+  labels:
+    strimzi.io/cluster: {{ .Values.config.clusterName }}
+    {{- include "logscale-strimiz-kafka-topics.labels" . | nindent 4 }}
+spec:
+{{- if .Values.config.prefix }}
+  topicName: {{ .Values.config.prefix }}-humio-ingest
+{{ else }}
+  topicName: humio-ingest
+{{- end }}
+  partitions: {{ .Values.config.topics.ingest.digestPartitionsCount }}
+  replicas: 3
+  config:
+    cleanup.policy: "delete"
+    compression.type: producer
+    min.insync.replicas: {{ .Values.config.topics.ingest.minisr }}
+    retention.ms: {{ .Values.config.topics.ingest.retention.ms }}
+    retention.bytes: {{ .Values.config.topics.ingest.retention.bytes }}
+    max.message.bytes: 10485760

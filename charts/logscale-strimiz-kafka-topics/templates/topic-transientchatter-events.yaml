@@ -1,0 +1,27 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+{{- if .Values.config.prefix }}
+  name: {{ .Values.config.prefix }}-transientchatter-events
+{{ else }}
+  name: transientchatter-events
+{{- end }}
+  annotations:
+    helm.sh/resource-policy: "keep"
+  labels:
+    strimzi.io/cluster: {{ .Values.config.clusterName }}
+    {{- include "logscale-strimiz-kafka-topics.labels" . | nindent 4 }}
+spec:
+{{- if .Values.config.prefix }}
+  topicName: {{ .Values.config.prefix }}-transientChatter-events
+{{ else }}
+  topicName: transientChatter-events
+{{- end }}
+  partitions: 12
+  replicas: 3
+  config:
+    cleanup.policy: "delete"
+    compression.type: producer
+    min.insync.replicas: 2
+    retention.ms: 3600000
+    retention.bytes: -1

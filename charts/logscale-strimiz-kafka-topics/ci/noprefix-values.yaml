@@ -1,0 +1,2 @@
+config:
+  clusterName: strimzi-kafka-cluster

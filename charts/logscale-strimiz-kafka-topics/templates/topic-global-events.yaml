@@ -1,0 +1,28 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+{{- if .Values.config.prefix }}
+  name: {{ .Values.config.prefix }}-global-events
+{{ else }}
+  name: global-events
+{{- end }}
+  annotations:
+    helm.sh/resource-policy: "keep"
+  labels:
+    strimzi.io/cluster: {{ .Values.config.clusterName }}
+    {{- include "logscale-strimiz-kafka-topics.labels" . | nindent 4 }}
+spec:
+{{- if .Values.config.prefix }}
+  topicName: {{ .Values.config.prefix }}-global-events
+{{ else }}
+  topicName: global-events
+{{- end }}
+  partitions: 1
+  replicas: 3
+  config:
+    cleanup.policy: "delete"
+    compression.type: producer
+    min.insync.replicas: 2
+    max.message.bytes: 2097152
+    retention.bytes: 1073741824
+    retention.ms: -1
