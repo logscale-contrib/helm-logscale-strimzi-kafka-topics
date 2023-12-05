@@ -94,8 +94,8 @@ jobs:
     strategy:
       matrix:
         values:
-          - filesystem
-          - azureblob-azurekey
+          - noprefix-values
+          - prefix-values
     runs-on: ubuntu-latest
     steps:
       - name: Install 1Password CLI
