@@ -10,7 +10,7 @@ metadata:
     helm.sh/resource-policy: "keep"
   labels:
     strimzi.io/cluster: {{ .Values.config.clusterName }}
-    {{- include "logscale-strimiz-kafka-topics.labels" . | nindent 4 }}
+    {{- include "logscale-strimzi-kafka-topics.labels" . | nindent 4 }}
 spec:
 {{- if .Values.config.prefix }}
   topicName: {{ .Values.config.prefix }}-humio-ingest

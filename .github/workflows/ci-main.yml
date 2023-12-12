@@ -114,7 +114,7 @@ jobs:
           output_file_path: console,results.sarif
           quiet: true
           framework: helm
-          directory: charts/logscale-strimiz-kafka-topics
+          directory: charts/logscale-strimzi-kafka-topics
           var_file: "${{ matrix.values }}-values.yaml"
 
       - name: Upload SARIF file
