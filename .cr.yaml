@@ -1,6 +1,6 @@
 owner: logscale-contrib
 git-repo: helm-logscale-strimzi-kafka-topics
-package-path: charts/logscale-strimzi-kafka-topics
+package-path: .
 release-name-template: v{{ .Version }}
 skip-existing: true
 make-release-latest: false
