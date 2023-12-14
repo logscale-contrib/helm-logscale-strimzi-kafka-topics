@@ -55,8 +55,7 @@
       {
         "chartPath": "charts/logscale-strimzi-kafka-topics",
         "registry": "ghcr.io/logscale-contrib/charts",
-        "populateChangelog": false,
-        "onlyUpdateVersion": false
+        "populateChangelog": false
       }
     ],
     [
