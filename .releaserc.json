@@ -70,7 +70,7 @@
       {
         "assets": [
           "README.md",
-          "chart/Chart.yaml"
+          "charts/logscale-strimzi-kafka-topics/Chart.yaml"
         ],
         "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
       }

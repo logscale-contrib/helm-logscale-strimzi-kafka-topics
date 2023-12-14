@@ -1,5 +1,5 @@
 owner: logscale-contrib
-git-repo: helm-kafka-strimzi-cluster
+git-repo: helm-logscale-strimzi-kafka-topics
 package-path: charts/logscale-strimzi-kafka-topics
 release-name-template: v{{ .Version }}
 skip-existing: true
