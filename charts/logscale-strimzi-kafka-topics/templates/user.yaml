@@ -8,6 +8,7 @@ metadata:
 spec:
   authentication:
     type: {{ .Values.config.user.authentication.type }}
+{{- if eq .Values.config.user.authorization.type "simple" }}
   authorization:
     type: {{ .Values.config.user.authorization.type }}
     acls:
@@ -23,4 +24,5 @@ spec:
           - Read
           - Write
         host: "*"
+{{- end }}
 {{- end }}
