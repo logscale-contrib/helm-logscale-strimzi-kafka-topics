@@ -15,7 +15,7 @@ spec:
       - resource:
           type: topic
           name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
-          patternType: prefixed
+          patternType: prefix
         operations:
           - Delete
           - Describe
