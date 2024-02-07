@@ -8,11 +8,9 @@ config:
   user:
     enabled: true
     authentication:
-      type: scram-sha-512
+      type: tls
     authorization:
       type: simple
-
-
   topics:
     ingest:
       replicas: 3
