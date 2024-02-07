@@ -2,7 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
 {{- if .Values.config.prefix }}
-  name: {{ .Values.config.prefix }}-transientchatter-events
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-transientchatter-events
 {{ else }}
   name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-transientchatter-events
 {{- end }}

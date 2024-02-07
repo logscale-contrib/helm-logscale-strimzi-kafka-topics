@@ -2,7 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
 {{- if .Values.config.prefix }}
-  name: {{ .Values.config.prefix }}-humio-ingest
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-humio-ingest
 {{ else }}
   name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-humio-ingest
 {{- end }}
