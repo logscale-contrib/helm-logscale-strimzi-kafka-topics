@@ -4,7 +4,7 @@ metadata:
 {{- if .Values.config.prefix }}
   name: {{ .Values.config.prefix }}-transientchatter-events
 {{ else }}
-  name: transientchatter-events
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-transientchatter-events
 {{- end }}
   annotations:
     helm.sh/resource-policy: "keep"
@@ -13,9 +13,9 @@ metadata:
     {{- include "logscale-strimzi-kafka-topics.labels" . | nindent 4 }}
 spec:
 {{- if .Values.config.prefix }}
-  topicName: {{ .Values.config.prefix }}-transientChatter-events
+  topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-transientChatter-events
 {{ else }}
-  topicName: transientChatter-events
+  topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-transientChatter-events
 {{- end }}
   partitions: 12
   replicas: 3

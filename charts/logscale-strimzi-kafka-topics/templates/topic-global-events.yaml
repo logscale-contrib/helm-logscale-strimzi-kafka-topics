@@ -2,9 +2,9 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
 {{- if .Values.config.prefix }}
-  name: {{ .Values.config.prefix }}-global-events
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-global-events
 {{ else }}
-  name: global-events
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-global-events
 {{- end }}
   annotations:
     helm.sh/resource-policy: "keep"
@@ -13,9 +13,9 @@ metadata:
     {{- include "logscale-strimzi-kafka-topics.labels" . | nindent 4 }}
 spec:
 {{- if .Values.config.prefix }}
-  topicName: {{ .Values.config.prefix }}-global-events
+  topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-global-events
 {{ else }}
-  topicName: global-events
+  topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-global-events
 {{- end }}
   partitions: 1
   replicas: 3
