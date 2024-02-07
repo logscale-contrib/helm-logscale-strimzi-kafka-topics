@@ -10,6 +10,7 @@ config:
     authentication:
       type: tls-external
     authorization:
+      enabled: true
       type: simple
   topics:
     ingest:

@@ -8,7 +8,7 @@ metadata:
 spec:
   authentication:
     type: {{ .Values.config.user.authentication.type }}
-{{- if eq .Values.config.user.authorization.type "simple" }}
+{{- if .Values.config.user.authorization.enabled }}
   authorization:
     type: {{ .Values.config.user.authorization.type }}
     acls:
