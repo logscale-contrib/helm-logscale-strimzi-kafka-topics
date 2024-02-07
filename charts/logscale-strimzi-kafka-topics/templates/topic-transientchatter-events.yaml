@@ -18,10 +18,10 @@ spec:
   topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-transientChatter-events
 {{- end }}
   partitions: 12
-  replicas: 3
+  replicas: {{ .Values.config.topics.transientChatter.replicas }}
   config:
     cleanup.policy: "delete"
     compression.type: producer
-    min.insync.replicas: 2
+    min.insync.replicas: {{ .Values.config.topics.transientChatter.minisr }}
     retention.ms: 3600000
     retention.bytes: -1

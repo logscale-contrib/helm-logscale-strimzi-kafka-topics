@@ -1,0 +1,26 @@
+{{- if .Values.config.user.enabled }}
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
+  labels:
+    strimzi.io/cluster: {{ .Values.config.clusterName }}
+spec:
+  authentication:
+    type: {{ .Values.config.user.authentication.type }}
+  authorization:
+    type: {{ .Values.config.user.authorization.type }}
+    acls:
+      # Example ACL rules for consuming from my-topic using consumer group my-group
+      - resource:
+          type: topic
+          name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
+          patternType: prefixed
+        operations:
+          - Delete
+          - Describe
+          - DescribeConfigs
+          - Read
+          - Write
+        host: "*"
+{{- end }}

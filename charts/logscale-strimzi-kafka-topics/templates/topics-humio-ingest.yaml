@@ -18,7 +18,7 @@ spec:
   topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-humio-ingest
 {{- end }}
   partitions: {{ .Values.config.topics.ingest.digestPartitionsCount }}
-  replicas: 3
+  replicas: {{ .Values.config.topics.ingest.replicas }}
   config:
     cleanup.policy: "delete"
     compression.type: producer

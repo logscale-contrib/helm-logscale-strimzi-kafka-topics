@@ -5,11 +5,26 @@
 keep: true
 
 config:
+  user:
+    enabled: true
+    authentication:
+      type: scram-sha-512
+    authorization:
+      type: simple
+
+
   topics:
     ingest:
+      replicas: 3
       digestPartitionsCount: 480
       minisr: 2
       # Two(2) days x 86400 * 1000
       retention:
         ms: 172800000
         bytes: -1
+    global:
+      replicas: 3
+      minisr: 2
+    transientChatter:
+      replicas: 3
+      minisr: 2
