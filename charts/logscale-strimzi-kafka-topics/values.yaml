@@ -8,7 +8,7 @@ config:
   user:
     enabled: true
     authentication:
-      type: tls
+      type: tls-external
     authorization:
       type: simple
   topics:
