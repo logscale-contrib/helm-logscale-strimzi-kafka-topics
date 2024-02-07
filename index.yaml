@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   logscale-strimzi-kafka-topics:
   - apiVersion: v2
+    appVersion: 3.0.0-next.4
+    created: "2024-02-07T13:27:19.483770444Z"
+    description: A Helm chart for Kubernetes
+    digest: b3f4cdad1323e599df95dcb68b844f0cd577478738d6b8ac1ed7d530eee92136
+    maintainers:
+    - name: ryanfaircloth
+    name: logscale-strimzi-kafka-topics
+    type: application
+    urls:
+    - https://github.com/logscale-contrib/helm-logscale-strimzi-kafka-topics/releases/download/v3.0.0-next.4/logscale-strimzi-kafka-topics-3.0.0-next.4.tgz
+    version: 3.0.0-next.4
+  - apiVersion: v2
     appVersion: 3.0.0-next.3
     created: "2024-02-07T12:44:01.546056418Z"
     description: A Helm chart for Kubernetes
@@ -73,4 +85,4 @@ entries:
     urls:
     - https://github.com/logscale-contrib/helm-logscale-strimzi-kafka-topics/releases/download/v2.0.3-next.3/logscale-strimzi-kafka-topics-2.0.3-next.3.tgz
     version: 2.0.3-next.3
-generated: "2024-02-07T12:44:01.546104407Z"
+generated: "2024-02-07T13:27:19.483947866Z"
