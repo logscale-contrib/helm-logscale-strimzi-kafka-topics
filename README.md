@@ -1,6 +1,6 @@
 # logscale-strimzi-kafka-topics
 
-![Version: 3.0.0-next.5](https://img.shields.io/badge/Version-3.0.0--next.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.0-next.5](https://img.shields.io/badge/AppVersion-3.0.0--next.5-informational?style=flat-square)
+![Version: 3.0.0-next.6](https://img.shields.io/badge/Version-3.0.0--next.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.0-next.6](https://img.shields.io/badge/AppVersion-3.0.0--next.6-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -23,7 +23,7 @@ A Helm chart for Kubernetes
 | config.topics.ingest.retention.ms | int | `172800000` |  |
 | config.topics.transientChatter.minisr | int | `2` |  |
 | config.topics.transientChatter.replicas | int | `3` |  |
-| config.user.authentication.type | string | `"tls"` |  |
+| config.user.authentication.type | string | `"tls-external"` |  |
 | config.user.authorization.type | string | `"simple"` |  |
 | config.user.enabled | bool | `true` |  |
 | keep | bool | `true` |  |
