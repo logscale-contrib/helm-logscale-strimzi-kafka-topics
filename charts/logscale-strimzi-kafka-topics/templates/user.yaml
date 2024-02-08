@@ -24,5 +24,10 @@ spec:
           - Read
           - Write
         host: "*"
+{{- with .Values.config.user.secretTemplate }}
+  template:
+    secret:
+      {{- toYaml . | nindent 6 }}
+{{- end }}
 {{- end }}
 {{- end }}

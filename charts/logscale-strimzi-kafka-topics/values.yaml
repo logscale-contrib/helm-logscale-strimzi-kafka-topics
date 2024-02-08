@@ -12,6 +12,10 @@ config:
     authorization:
       enabled: true
       type: simple
+    # secretTemplate:
+    #   metadata:
+    #     labels:
+    #       custom: value
   topics:
     ingest:
       replicas: 3
