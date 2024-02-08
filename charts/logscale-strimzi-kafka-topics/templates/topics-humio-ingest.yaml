@@ -2,9 +2,9 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
 {{- if .Values.config.prefix }}
-  name: {{ .Values.config.prefix }}-humio-ingest
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-humio-ingest
 {{ else }}
-  name: humio-ingest
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-humio-ingest
 {{- end }}
   annotations:
     helm.sh/resource-policy: "keep"
@@ -13,12 +13,12 @@ metadata:
     {{- include "logscale-strimzi-kafka-topics.labels" . | nindent 4 }}
 spec:
 {{- if .Values.config.prefix }}
-  topicName: {{ .Values.config.prefix }}-humio-ingest
+  topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-{{ .Values.config.prefix }}-humio-ingest
 {{ else }}
-  topicName: humio-ingest
+  topicName: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-humio-ingest
 {{- end }}
   partitions: {{ .Values.config.topics.ingest.digestPartitionsCount }}
-  replicas: 3
+  replicas: {{ .Values.config.topics.ingest.replicas }}
   config:
     cleanup.policy: "delete"
     compression.type: producer
