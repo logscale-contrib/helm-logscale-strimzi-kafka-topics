@@ -24,5 +24,5 @@ spec:
     compression.type: producer
     min.insync.replicas: {{ .Values.config.topics.global.minisr }}
     max.message.bytes: 2097152
-    retention.bytes: 1073741824
+    retention.bytes: 2500000000
     retention.ms: -1

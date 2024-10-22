@@ -24,6 +24,7 @@ config:
       # Two(2) days x 86400 * 1000
       retention:
         ms: 172800000
+        # Size of disk * 90% / number of partitions /
         bytes: -1
     global:
       replicas: 3
