@@ -1,6 +1,6 @@
 # logscale-strimzi-kafka-topics
 
-![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.1.0](https://img.shields.io/badge/AppVersion-3.1.0-informational?style=flat-square)
+![Version: 3.2.0-next.1](https://img.shields.io/badge/Version-3.2.0--next.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.2.0-next.1](https://img.shields.io/badge/AppVersion-3.2.0--next.1-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -27,6 +27,7 @@ A Helm chart for Kubernetes
 | config.user.authorization.enabled | bool | `true` |  |
 | config.user.authorization.type | string | `"simple"` |  |
 | config.user.enabled | bool | `true` |  |
+| config.userAccess.enabled | bool | `false` |  |
 | keep | bool | `true` |  |
 
 ----------------------------------------------
