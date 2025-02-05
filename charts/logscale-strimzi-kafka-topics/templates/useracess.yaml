@@ -12,5 +12,5 @@ spec:
     kind: KafkaUser
     apiGroup: kafka.strimzi.io
     name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
-    namespace: {{ .Values.config.userAccess.instanceNamespace }}
+    namespace: {{ .Release.Namespace }}
 {{- end }}
