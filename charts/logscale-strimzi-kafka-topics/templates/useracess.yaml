@@ -5,7 +5,7 @@ metadata:
   name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
 spec:
   kafka:
-    name: strimzi.io/cluster: {{ .Values.config.clusterName }}
+    name: {{ .Values.config.clusterName }}
     namespace: {{ .Release.Namespace }}
     listener: tls
   user:
