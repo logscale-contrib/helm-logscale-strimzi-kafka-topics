@@ -1,0 +1,17 @@
+{{- if .Values.config.userAccess.enabled }}
+apiVersion: access.strimzi.io/v1alpha1
+kind: KafkaAccess
+metadata:
+  name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}-user-access
+  namespace: {{ .Values.config.userAccess.instanceNamespace }}
+spec:
+  kafka:
+    name: {{ .Values.config.clusterName }}
+    namespace: {{ .Release.Namespace }}
+    listener: tls
+  user:
+    kind: KafkaUser
+    apiGroup: kafka.strimzi.io
+    name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+{{- end }}

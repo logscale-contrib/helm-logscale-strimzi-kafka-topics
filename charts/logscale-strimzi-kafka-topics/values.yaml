@@ -16,6 +16,9 @@ config:
     #   metadata:
     #     labels:
     #       custom: value
+  userAccess:
+    enabled: false
+    # instanceNamespace:
   topics:
     ingest:
       replicas: 3
