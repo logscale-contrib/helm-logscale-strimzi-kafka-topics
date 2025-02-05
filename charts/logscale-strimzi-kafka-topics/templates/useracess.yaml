@@ -3,6 +3,7 @@ apiVersion: access.strimzi.io/v1alpha1
 kind: KafkaAccess
 metadata:
   name: {{ include "logscale-strimzi-kafka-topics.fullname" . }}
+  namespace: {{ .Values.config.userAccess.instanceNamespace }}
 spec:
   kafka:
     name: {{ .Values.config.clusterName }}
